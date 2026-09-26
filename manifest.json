@@ -1,0 +1,61 @@
+{
+  "name": "Flow Automation",
+  "description": "Auto Flow your prompts at scale. Batch generate and auto-download videos and images on Google Flow.",
+  "version": "1.0",
+  "version_name": "1.0",
+  "manifest_version": 3,
+  "action": {
+    "default_title": "Flow Automation"
+  },
+  "background": {
+    "service_worker": "service-worker-loader.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "js": [
+        "assets/index.ts-loader-DxDJLJ1v.js"
+      ],
+      "all_frames": false,
+      "matches": [
+        "*://flow.google.com/*"
+      ],
+      "run_at": "document_end"
+    }
+  ],
+  "side_panel": {
+    "default_path": "src/ui/side-panel/index.html"
+  },
+  "offline_enabled": true,
+  "host_permissions": [
+    "*://flow.google.com/*"
+  ],
+  "permissions": [
+    "storage",
+    "unlimitedStorage",
+    "tabs",
+    "sidePanel",
+    "activeTab",
+    "downloads",
+    "debugger"
+  ],
+  "web_accessible_resources": [
+    {
+      "matches": [
+        "*://flow.google.com/*"
+      ],
+      "resources": [
+        "assets/utils-BCNko0UU.js",
+        "assets/catchUploadFile.ts-DJwIizxX.js",
+        "assets/index.ts--DDDukWu.js"
+      ],
+      "use_dynamic_url": false
+    }
+  ],
+  "icons": {
+    "16": "src/assets/logo.png",
+    "24": "src/assets/logo.png",
+    "32": "src/assets/logo.png",
+    "128": "src/assets/logo.png"
+  }
+}
